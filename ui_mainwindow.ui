@@ -22,10 +22,42 @@
   <property name="windowTitle">
    <string>Game-test memory</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(100, 53, 95)</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="3" column="0">
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="startButton">
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>Старт</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" alignment="Qt::AlignmentFlag::AlignTop">
      <widget class="QLabel" name="centretext">
+      <property name="font">
+       <font>
+        <pointsize>17</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
        <string>Нажмите &quot;Старт&quot;, чтобы начать игру!</string>
       </property>
@@ -34,20 +66,31 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QLineEdit" name="lineEdit"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="startButton">
+    <item row="5" column="0">
+     <widget class="QPushButton" name="checkButton">
+      <property name="font">
+       <font>
+        <pointsize>19</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
       <property name="text">
-       <string>Старт</string>
+       <string>Проверить</string>
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="QPushButton" name="checkButton">
+    <item row="0" column="0" alignment="Qt::AlignmentFlag::AlignHCenter">
+     <widget class="QLabel" name="textWinLose">
+      <property name="font">
+       <font>
+        <pointsize>9</pointsize>
+        <italic>true</italic>
+        <bold>false</bold>
+        <underline>false</underline>
+       </font>
+      </property>
       <property name="text">
-       <string>Проверить</string>
+       <string>:)</string>
       </property>
      </widget>
     </item>

@@ -4,8 +4,6 @@ from ui_mainwindow import Ui_MainWindow
 import random
 from PyQt6.QtCore import QTimer, Qt
 
-# короче изменить переход между проверкой и следующим раундом,а также во время некст раундов менять кнопку "старт" на "продллжить"
-# либо просто как то упростить себе жизнь ... можно добавить всплывающее окно(?) после "победы" или "проигрыша", дабы не менять главный текст?...
 
 
 class MainWindow(QMainWindow):
@@ -25,10 +23,8 @@ class MainWindow(QMainWindow):
 
     # здесь, при нажатии кнопки старт, мы получим рандом числа на экран на 2 сек
     def startTest(self):
-        # text = self.ui.lineEdit.text() это проверка кода с ютуба хдхд
-        # if text == "":
-        #     text = "Oo"
-        # self.ui.centretext.setText(f"Проверка, {text}!!!")
+        self.ui.startButton.setText("Начать заново")
+        self.ui.textWinLose.setText("ヽ(*・ω・)ﾉ")
         self.sequence = [random.randint(0, 9) for _ in range(self.level + 2)]
         self.ui.centretext.setText(" ".join(map(str, self.sequence)))
         self.ui.lineEdit.setText("")
@@ -47,20 +43,21 @@ class MainWindow(QMainWindow):
         user_sequence = list(map(str, user_in.split()))
 
         if user_sequence == list(map(str, self.sequence)):
-            self.ui.centretext.setText(
-                "Excellent!! Вы ввели правильную последовательность."
+            self.ui.textWinLose.setText(
+                "Excellent! Всё правильноヽ(>∀<☆)ノ"
             )
             self.level += 1
             self.show_time = max(1000, self.show_time - 200)
         else:
-            self.ui.centretext.setText(
-                f"Неверно:(\nПравильная последовательность была: {' '.join(map(str, self.sequence))})"
+            self.ui.textWinLose.setText(
+                f"Неверно (μ_μ)... Правильно было: {' '.join(map(str, self.sequence))}"
             )
             self.level = 1
             self.show_time = 2000
         self.ui.lineEdit.setEnabled(False)
         self.ui.checkButton.setEnabled(False)
-        self.ui.centretext.setText("Нажмите 'старт', чтобы продолжить")
+        self.ui.startButton.setText("Вперед")
+        self.ui.centretext.setText("Нажмите 'Вперед', чтобы продолжить")
 
 
 if __name__ == "__main__":
